@@ -47,14 +47,15 @@ class DirectorioController extends Controller
         return view('buscar');
     }
 
-    public function showContactos()
+    public function showContactos($codigoEntrada)
     {
-/*
+
         $directorio = Directorio::find($codigoEntrada);
+        /*
         $contacto = $directorio->contactos;
         , compact('directorio','contacto')*/
         $contacto= Contacto::all();
-        return view('vercontactos',compact('contacto'));
+        return view('vercontactos',compact('contacto','directorio'));
     }
 
 

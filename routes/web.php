@@ -25,9 +25,10 @@ Route::get('/directorio/create',[DirectorioController::class,'create'])->name('d
 Route::post('/directorio/store',[DirectorioController::class,'store'])->name('directorio.store');
 
 Route::get('/directorio/buscar',[DirectorioController::class,'buscar'])->name('directorio.buscar');
-Route::get('/directorio/showContactos',[DirectorioController::class,'showContactos'])->name('directorio.contactos');
+Route::get('/directorio/showContactos/{id}',[DirectorioController::class,'showContactos'])->name('directorio.contactos');
 Route::get('/directorio/eliminar',[DirectorioController::class,'eliminar'])->name('directorio.eliminar');
 
 
 Route::get('/contacto/create',[ContactoController::class,'create'])->name('contacto.create');
+Route::get('/contacto/store',[ContactoController::class,'store'])->name('contacto.store');
 Route::delete('/contacto/delete/{id}',[ContactoController::class,'destroy'])->name('contacto.delete');

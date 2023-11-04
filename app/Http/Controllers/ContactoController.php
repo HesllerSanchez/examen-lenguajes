@@ -23,12 +23,20 @@ class ContactoController extends Controller
         return view('agregarcontacto');
     }
 
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $contacto = new Contacto();
+
+        $contacto->nombre = $request->post('nombre');
+        $contacto->apellido = $request->post('apellido');
+        $contacto->telefono = $request->post('telefono');
+
+        $contacto->save();
+        return redirect()->route('directorio.index');
     }
 
     /**
@@ -62,6 +70,6 @@ class ContactoController extends Controller
     {
         $contacto= Contacto::findOrFail($id);
         $contacto->delete();
-        return redirect()->route('directorio.contactos');
+        return redirect()->route('directorio.index');
     }
 }
